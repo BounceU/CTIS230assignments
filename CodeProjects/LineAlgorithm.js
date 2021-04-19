@@ -30,7 +30,7 @@ if (canvas.getContext) {
     button.addEventListener('click', function() {
 
         //Use image from textbox if there's something there.
-        if (imageURLField.value != null) {
+        if (imageURLField.value != '') {
             img = new Image();
             img.crossOrigin = "Anonymous";
             img.src = imageURLField.value;
