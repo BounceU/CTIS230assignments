@@ -1,5 +1,15 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>AP US History Paper</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/CTIS230Assignments/StyleSheet.css">
+</head>
+
 <header>
-    <p>Navigation:<br> </p>
+    Navigation:
     <nav>
         <ul>
             <li>
@@ -17,14 +27,38 @@
             <li>There are no other links yet ;)</li>
         </ul>
     </nav>
-    <hr>
 </header>
 
-<p>Here is a canvas:</p>
-<button id="butt" style="border: 1px solid #000000; width:150px; height:20px;">Make it lines!</button>
-<input type="file" id="findFile" /><br>
-<label for="fileInput">Image URL</label>
-<input type="url" id="fileInput" name="fileInput">
-<br><br>
-<canvas id="tutorial" width="856" height="1000" style="border:1px solid #000000;"></canvas>
-<script type="text/javascript " src="LineAlgorithm.js "></script>
+
+<body>
+    <div class="centerTextGroup">
+        <div class="optionsView">
+            <p>Here are some options that you can change for the project.</p>
+            <input type="file" id="findFile">
+            <label for="fileInput">Image URL</label>
+            <input type="url" id="fileInput" name="fileInput">
+            <br><br>
+            <label for="numLines">Number of lines:</label>
+            <input type="number" id="numLines" name="numLines" value="16000">
+            <label for="testNumber">Tests per line:</label>
+            <input type="number" id="testNumber" name="testNumber" value="100">
+            <br><br>
+            <label for="lineWeight">Line weight:</label>
+            <input type="number" id="lineWeight" name="lineWeight" value="8">
+            <label for="sideLen">Maximum side length:</label>
+            <input type="number" id="sideLen" name="sideLen" value="500">
+            <br><br>
+            <button id="butt">Make it lines!</button>
+        </div>
+        <br>
+        <div class="projectView">
+            <canvas id="lineCanvas" width=800 height=600></canvas>
+        </div>
+        <p>If you want a description of what this algorithm does, click <a href="">here</a></p>
+    </div>
+
+
+    <script type="text/javascript " src="LineAlgorithm.js "></script>
+</body>
+
+</html>

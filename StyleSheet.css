@@ -1,0 +1,92 @@
+header {
+    height: auto;
+    background-color: rgb(70, 70, 70);
+    color: white;
+    margin: 10px;
+    border: 10px solid rgb(70, 70, 70);
+    font-size: large;
+}
+
+nav {
+    height: auto;
+}
+
+a:link {
+    color: greenyellow;
+}
+
+a:hover {
+    color: greenyellow;
+}
+
+a:visited {
+    color: greenyellow;
+}
+
+a:active {
+    color: red;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+body {
+    background-color: rgb(40, 40, 40);
+}
+
+canvas {
+    background-color: white;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.centerTextGroup {
+    margin-left: 15%;
+    margin-right: 10%;
+    width: 60%;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: rgb(70, 70, 70);
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.optionsView {
+    font-size: x-large;
+    background-color: #31D618;
+    text-align: center;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+input {
+    font-family: serif;
+    font-size: large;
+    width: 10%;
+}
+
+button {
+    font-size: x-large;
+    background-color: red;
+    border-radius: 5px;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.projectView {
+    background-color: #31D618;
+    text-align: center;
+    border-radius: 2%;
+    padding: 2%;
+}

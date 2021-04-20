@@ -1,19 +1,55 @@
 // Here's the deal. This takes an image and draws it using only straight lines spanning the entire canvas. Cool, right? I thought so.
 // Coded by Ben Liebkemann 2021
 
-var canvas = document.getElementById('tutorial');
+var canvas = document.getElementById('lineCanvas');
 var button = document.getElementById('butt'); // I thought this was funny
+var imageURLField = document.getElementById('fileInput');
 
+var lineWeightElement = document.getElementById('lineWeight');
+var numLinesElement = document.getElementById('numLines');
+var iterationsElement = document.getElementById('testNumber');
+var maxSideElement = document.getElementById('sideLen');
 var lineWeight = 8;
 var numLines = 16000;
 var iterations = 100;
+var maxSide = 500;
+lineWeightElement.addEventListener('change', function(e) {
+    lineWeight = parseInt(lineWeightElement.value);
+}, false);
+numLinesElement.addEventListener('change', function(e) {
+    numLines = parseInt(numLinesElement.value);
+}, false);
+iterationsElement.addEventListener('change', function(e) {
+    iterations = parseInt(iterationsElement.value);
+}, false);
+maxSideElement.addEventListener('change', function(e) {
+    maxSide = parseInt(maxSideElement.value);
+}, false);
+
+
+
 
 var ctx = canvas.getContext('2d');
+
+imageURLField.addEventListener('change', function(e) {
+    img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.addEventListener('load', function() {
+        if (img.width > img.height) {
+            canvas.width = maxSide;
+            canvas.height = maxSide / img.width * img.height;
+        } else {
+            canvas.height = maxSide;
+            canvas.width = maxSide / img.height * img.width;
+        }
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height) // execute drawImage statements here
+    }, false);
+    img.src = imageURLField.value;
+}, false);
 
 if (canvas.getContext) {
     var img;
 
-    var imageURLField = document.getElementById('fileInput');
 
     var localFile = document.getElementById('findFile');
     localFile.addEventListener('change', handleFiles);
@@ -21,7 +57,14 @@ if (canvas.getContext) {
     function handleFiles(e) {
         img = new Image();
         img.addEventListener('load', function() {
-            ctx.drawImage(img, 0, 0) // execute drawImage statements here
+            if (img.width > img.height) {
+                canvas.width = maxSide;
+                canvas.height = maxSide / img.width * img.height;
+            } else {
+                canvas.height = maxSide;
+                canvas.width = maxSide / img.height * img.width;
+            }
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height) // execute drawImage statements here
         }, false);
 
         img.src = URL.createObjectURL(e.target.files[0]);
@@ -29,18 +72,11 @@ if (canvas.getContext) {
 
     button.addEventListener('click', function() {
 
-        //Use image from textbox if there's something there.
-        if (imageURLField.value != '') {
-            img = new Image();
-            img.crossOrigin = "Anonymous";
-            img.src = imageURLField.value;
-            cors = false;
-        }
+        //var maxSide = maxSideElement.value;
+
 
         //Setup Canvases
         var imageCanvas = document.createElement('canvas');
-
-        var maxSide = 1000;
         if (img.width > img.height) {
             canvas.width = maxSide;
             canvas.height = maxSide / img.width * img.height;
