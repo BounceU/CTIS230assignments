@@ -35,10 +35,123 @@
         </aside>
 
         <section>
-            <h1>How to draw an image using only straight lines</h1>
-            <p>First, you have to ...</p>
-        </section>
+            <h1>
+                How to draw an image using only straight lines
+            </h1>
+            <p>
+                At the simplest level, this algorithm works by transferring darkness from the input image to the output image.
+            </p>
+            <p>
+                <em>
+                    What?
+                </em>
+            </p>
 
+            <p>
+                Yeah that's what I thought at first, too. Imagine this: you have a grayscale input image that's only 1 pixel by 1 pixel with a value of 0 (black). Now say you wanted to transfer that data to a new, blank white image: one way you could do it is repeatedly
+                subtract 1 from the new image and add 1 to the old image. This basically swaps the data in the images and the output is now black. We are doing something similar in this line program. For each pixel along each line, we add a certain amount
+                (defined by the user) to the input image and subtract that amount from the output image. Since we're subtracting the same amount at each pixel along the line, artifacts will appear which creates the cool effect you see in the finished
+                images.
+            </p>
+
+            <div class="imageShow">
+                <img src="/CTIS230assignments/images/WhiteToBlackReverse.gif" alt="Animation showing transition from black to white" width=20%>
+                <img src="/CTIS230assignments/images/ArrowLeftToRight.png" alt="Arrow pointing between two animations" width=20%>
+                <img src="/CTIS230assignments/images/WhiteToBlack.gif" alt="Animation showing transition from white to black" width=20%>
+            </div>
+            <p>
+                <em>
+                    Hey, wait a minute! You're only talking about gray images! The images on your website are colored!
+                </em>
+            </p>
+
+            <p>
+                How very astute of you. The project you see on the website isn't any more advanced than what I described above. There's just a simple trick you can use to convert one colored image into 3 gray images: separate the color channels. Colored images are just
+                composed of 3 gray images each colored red, green, and blue respectively. We can separate these out, draw the gray lines on each, and then apply the right color to our lines when we draw them on the output.
+            </p>
+            <div class="imageShow">
+                <img src="/CTIS230assignments/images/RubiksShown.png" width=60% alt="Image showing 3 color channels combining into 1 complete image" id=notPixelated>
+            </div>
+            <p>
+                <em>
+                    Okay, I guess that makes sense. But the lines you are drawing are cyan, magenta, and yellow; not red, green, and blue.
+                </em>
+            </p>
+            <p>
+                That's true, but what if I told you that in the code the color I defined for those lines <em>were</em> red, green, and blue? Remember that I said that these lines we're drawing on the output are <strong>subtractive</strong>. We are subtracting
+                these reds, greens, and blues from a plain white. This is how the subtractions pan out:
+                <ul>
+                    <li>
+                        White - <span style="color:red">Red</span> = <span style="color:cyan">Cyan</span>
+                    </li>
+                    <li>
+                        White - <span style="color:lightgreen">Green</span> = <span style="color:magenta">Magenta</span>
+                    </li>
+                    <li>
+                        White - <span style="color:lightskyblue">Blue</span> = <span style="color:yellow">Yellow</span>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                If you want a real-world example, this is the same reason printers use cyan, magenta, and yellow ink instead of red, green, and blue ink. Putting ink on a page blocks the light from reflecting off of the white. It's subtractive. It needs to use cyan,
+                magenta, and yellow in order to create every color because it's blocking out the white. Computer monitors and TV screens generate their own light instead of blocking it. They are additive. That is why they can use red, green, and blue.
+            </p>
+            <p>
+                <em>
+                    Okay, but you never talked about how you actually find the lines to draw.
+                </em>
+            </p>
+            <p>
+                Yeah, this is the fun part. Remember before when we were talking about transferring data from one image to another? Well we want to maximize the amount of data that we're transferring. To do that, we can find the darkest pixel on the image. We know our
+                line will pass through this pixel because we're trying to maximize the transfer of data and this pixel has the most data to transfer. The way I've implemented the algorithm, we take a certain number of lines with random slopes being drawn
+                through this darkest pixel. We then get the average brightness along the line. We know that the line with the darkest average brightness will be the one we want to use because that darkness is what we want to transfer from the input image
+                to the output image. You then go through the process outlined above (adding to the input and subtracting from the output along the line). There will now be a new darkest pixel. Find it and repeat these steps and you've got yourself a program!
+            </p>
+            <p>
+                <strong>
+                    Recap of steps:
+                </strong>
+                <ol>
+                    <li>
+                        Split the image into separate color channels and do steps 2-6 for each color channel in both the input and output
+                    </li>
+                    <li>
+                        Find the darkest pixel in the image
+                    </li>
+                    <li>
+                        Draw a number of random lines through that pixel
+                    </li>
+                    <li>
+                        Find which one of those lines has the darkes average brightness along it
+                    </li>
+                    <li>
+                        Add a pre-determined value to each pixel along the line in the input image and subtract that same amount from each pixel along the line in the output image
+                    </li>
+                    <li>
+                        Repeat until the user says you're done or you've drawn a pre-determined amount of lines
+                    </li>
+                </ol>
+                <br> Getting into the nitty-gritty technical details:
+                <ul>
+                    <li>
+                        I sped up this algorithm by using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers">Web Workers</a> to effectively run multiple processes and split the workload of the program (I used
+                        1 worker for each color channel of the image to find the lines)
+                    </li>
+                    <li>
+                        I just drew lines from endpoint to endpoint of each line on a standard html Canvas element by using (canvas context).globalCompositeOperation = 'difference'; This sets the draw mode to subtractive. <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation">Here</a>                        is the resource I used to figure out more about these draw modes.
+                    </li>
+                    <li>
+                        I used <a href="https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm">Bresenham's line algorithm</a> to manipulate the arrays that I used to store the image data. This algorithm just defines how to determine what pixels fall
+                        along a line.
+                    </li>
+                    <li>
+                        There's this really annoying (but safe) thing called <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_enabled_image">CORS restrictions</a> that keep you from getting the data from random images in javascript. This
+                        was developed because malicious people could execute attacks by putting garbage in an image. Only images that are CORS safe can be used in this project. The little thumbnail images on google images work, though! Also, any images
+                        originating from the user (uploaded by the user) don't have any CORS restrictions!
+                    </li>
+                </ul>
+            </p>
+        </section>
         <aside id=usegrad2>
         </aside>
     </main>
