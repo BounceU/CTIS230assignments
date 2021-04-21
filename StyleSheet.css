@@ -143,13 +143,6 @@ nav a:hover {
     border-color: #31D618;
 }
 
-nav a:visited {
-    text-decoration: none;
-    padding: 0;
-    display: block;
-    color: #31D618;
-}
-
 nav a:active {
     text-decoration: none;
     padding: 2em;
@@ -173,10 +166,6 @@ section a {
 
 section a:hover {
     color: red;
-}
-
-section a:visited {
-    color: #31D618;
 }
 
 section a:active {
