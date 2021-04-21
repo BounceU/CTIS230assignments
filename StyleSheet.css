@@ -166,3 +166,19 @@ nav a:active {
     padding-top: 0;
     background-image: linear-gradient(to left, rgba(255, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
 }
+
+section a {
+    color: #31D618;
+}
+
+section a:hover {
+    color: red;
+}
+
+section a:visited {
+    color: #31D618;
+}
+
+section a:active {
+    color: #31D618;
+}
