@@ -3,61 +3,57 @@
 <html>
 
 <head>
-    <title>AP US History Paper</title>
+    <title>Line Drawing Project</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/CTIS230assignments/StyleSheet.css">
 </head>
 
-<header>
-    Navigation:
-    <nav>
-        <ul>
-            <li>
-                <a href="/CTIS230assignments/LiebkemannAssignment2.html">Assignment 2</a>
-            </li>
-            <li>
-                <a href="/CTIS230assignments/LiebkemannAssignment3_1.html">Assignment 3.1</a>
-            </li>
-            <li>
-                <a href="/CTIS230assignments/LiebkemannAssignment3_2.html">Assignment 3.2</a>
-            </li>
-            <li>
-                <a href="/CTIS230assignments/CodeProjects/LineAlgorithmWebpage.html">Line project</a>
-            </li>
-            <li>There are no other links yet ;)</li>
-        </ul>
-    </nav>
-</header>
-
-
 <body>
-    <div class="centerTextGroup">
-        <div class="optionsView">
-            <p>Here are some options that you can change for the project.</p>
-            <input type="file" id="findFile">
-            <label for="fileInput">Image URL</label>
-            <input type="url" id="fileInput" name="fileInput">
-            <br><br>
-            <label for="numLines">Number of lines:</label>
-            <input type="number" id="numLines" name="numLines" value="16000">
-            <label for="testNumber">Tests per line:</label>
-            <input type="number" id="testNumber" name="testNumber" value="100">
-            <br><br>
-            <label for="lineWeight">Line weight:</label>
-            <input type="number" id="lineWeight" name="lineWeight" value="8">
-            <label for="sideLen">Maximum side length:</label>
-            <input type="number" id="sideLen" name="sideLen" value="500">
-            <br><br>
-            <button id="butt">Make it lines!</button>
-        </div>
-        <br>
-        <div class="projectView">
-            <canvas id="lineCanvas" width=800 height=600></canvas>
-        </div>
-        <p>If you want a description of what this algorithm does, click <a href="">here</a></p>
-    </div>
+    <main>
+        <aside id=usegrad1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/CTIS230assignments/LiebkemannAssignment3_2.html">Home Page</a>
+                    </li>
+                    <li id=currentPage>
+                        <a href="/CTIS230assignments/CodeProjects/LineAlgorithmWebpage.html">Line Project</a>
+                    </li>
+                    <li>
+                        <a href="/CTIS230assignments/LiebkemannAssignment3_1.html">Description of Line Project</a>
+                    </li>
+                    <li>
+                        <a href="/CTIS230assignments/LiebkemannAssignment2.html">Temporary Webpage</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
 
 
+        <section>
+            <div class="projectView">
+                <canvas id="lineCanvas" width=800 height=600></canvas>
+            </div>
+            <p>If you want a description of what this algorithm does, click <a href="/CTIS230assignments/LiebkemannAssignment3_1.html">here</a></p>
+        </section>
+        <aside id=usegrad2>
+            <ul id=settingsPanel>
+                <li>Here are some options that you can change for the project.</li>
+                <li><input type="file" id="findFile"></li>
+                <li><label for="fileInput">Image URL</label>
+                    <input type="url" id="fileInput" name="fileInput"></li>
+                <li><label for="numLines">Number of lines:</label>
+                    <input type="number" id="numLines" name="numLines" value="16000"></li>
+                <li><label for="testNumber">Tests per line:</label>
+                    <input type="number" id="testNumber" name="testNumber" value="100"></li>
+                <li><label for="lineWeight">Line weight:</label>
+                    <input type="number" id="lineWeight" name="lineWeight" value="8"></li>
+                <li><label for="sideLen">Maximum side length:</label>
+                    <input type="number" id="sideLen" name="sideLen" value="500"></li>
+                <li><button id="butt">Make it lines!</button></li>
+            </ul>
+        </aside>
+    </main>
     <script type="text/javascript " src="LineAlgorithm.js "></script>
 </body>
 

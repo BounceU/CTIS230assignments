@@ -1,46 +1,10 @@
-header {
-    height: auto;
-    background-color: rgb(70, 70, 70);
-    color: white;
-    margin: 10px;
-    border: 10px solid rgb(70, 70, 70);
-    font-size: large;
-}
-
-nav {
-    height: auto;
-}
-
-a:link {
-    color: greenyellow;
-}
-
-a:hover {
-    color: greenyellow;
-}
-
-a:visited {
-    color: greenyellow;
-}
-
-a:active {
-    color: red;
-}
-
-h1 {
-    text-align: center;
-}
-
-h2 {
-    text-align: center;
-}
-
-h3 {
-    text-align: center;
-}
+header {}
 
 body {
     background-color: rgb(40, 40, 40);
+    width: 100%;
+    height: 100%;
+    font-family: Cambria, Georgia, "Book Antiqua", serif
 }
 
 canvas {
@@ -49,26 +13,6 @@ canvas {
     max-height: 100%;
     min-width: 100%;
     min-height: 100%;
-}
-
-.centerTextGroup {
-    margin-left: 15%;
-    margin-right: 10%;
-    width: 60%;
-    padding-left: 5%;
-    padding-right: 5%;
-    background-color: rgb(70, 70, 70);
-    color: white;
-    padding-bottom: 10px;
-    padding-top: 20px;
-}
-
-.optionsView {
-    font-size: x-large;
-    background-color: #31D618;
-    text-align: center;
-    border-radius: 10px;
-    padding: 2%;
 }
 
 input {
@@ -81,12 +25,144 @@ button {
     font-size: x-large;
     background-color: red;
     border-radius: 5px;
+    width: 100%;
     border-color: rgba(0, 0, 0, 0);
 }
 
 .projectView {
+    box-sizing: border-box;
     background-color: #31D618;
     text-align: center;
     border-radius: 2%;
     padding: 2%;
+    margin-left: 10%;
+    width: 80%;
+}
+
+section {
+    overflow: auto;
+    flex-grow: 1;
+    background-color: rgb(51, 51, 51);
+    text-align: center;
+    color: white;
+}
+
+main {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    background: rgb(88, 6, 196);
+}
+
+aside {
+    overflow: auto;
+    flex-basis: 12em;
+    flex-shrink: 0;
+    list-style: none;
+    background: rgb(35, 35, 35);
+}
+
+body {
+    margin: 0 0 0 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+}
+
+#usegrad1 {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+}
+
+#usegrad2 {
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+}
+
+input {
+    width: 100%;
+}
+
+#settingsPanel li {
+    text-decoration: none;
+    padding: 0;
+    display: block;
+    color: #31D618;
+    border: 5px;
+    padding: 1em;
+    border-style: solid;
+    border-left-style: none;
+    border-top-style: none;
+    border-right-style: none;
+}
+
+aside ul {
+    padding-top: 0;
+    margin-top: 0;
+    list-style: none;
+    padding-left: 0;
+    padding-top: 0;
+}
+
+nav ul {
+    text-decoration: none;
+    display: block;
+    color: #31D618;
+    border: 5px;
+    margin: 0;
+    padding: 1em;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-left-style: none;
+    border-top-style: none;
+    border-right-style: none;
+}
+
+nav a {
+    margin: 0;
+    text-decoration: none;
+    padding: 0;
+    display: block;
+    color: #31D618;
+    border: 5px;
+    padding: 1em;
+    border-style: solid;
+    border-left-style: none;
+    border-top-style: none;
+    border-right-style: none;
+}
+
+nav a:hover {
+    text-decoration: none;
+    display: block;
+    padding: 2em;
+    font-style: italic;
+    color: red;
+    border-color: #31D618;
+}
+
+nav a:visited {
+    text-decoration: none;
+    padding: 0;
+    display: block;
+    color: #31D618;
+}
+
+nav a:active {
+    text-decoration: none;
+    padding: 2em;
+    display: block;
+    color: #31D618;
+}
+
+#currentPage {
+    text-decoration: none;
+    font-style: italic;
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    background-image: linear-gradient(to left, rgba(255, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
 }
