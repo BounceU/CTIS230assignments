@@ -1,8 +1,9 @@
-<!DOCTYPE html5>
+<!DOCTYPE html>
+
 <html>
 
 <head>
-    <title>Some of my projects</title>
+    <title>Cellular Automata Project</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/CTIS230assignments/StyleSheet.css">
 </head>
@@ -12,8 +13,7 @@
         <aside id=usegrad1>
             <nav>
                 <ul>
-
-                    <li id=currentPage>
+                    <li>
                         <a href="/CTIS230assignments/LiebkemannAssignment3_2.html">Home Page</a>
                     </li>
                     <li>
@@ -22,7 +22,7 @@
                     <li>
                         <a href="/CTIS230assignments/LiebkemannAssignment3_1.html">Description of Line Project</a>
                     </li>
-                    <li>
+                    <li id=currentPage>
                         <a href="/CTIS230assignments/CullularAutomataWebpage.html">Cellular Automata Project</a>
                     </li>
                     <li>
@@ -32,19 +32,31 @@
             </nav>
         </aside>
 
-        <section>
-            <h1>Hey, welcome to my website!</h1>
-            <p>Feel free to use the bar on the left to navigate to different pages. I have an assortment of projects here so check them out!</p>
-        </section>
 
+        <section id="hideOverflow">
+            <div class="automataFrame" id="holdCells">
+                <div class="cell"></div>
+            </div>
+
+        </section>
         <aside id=usegrad2>
             <ul id=settingsPanel>
+                <li>Here are some options that you can change for the project.</li>
+                <li><label id="scale">Scale: 1</label></li>
+                <li><button id="zoomIn">Zoom In</button></li>
+                <li><button id="zoomOut">Zoom Out</button></li>
                 <li>
-                    <p>Here you'll be able to change various settings in each of the projects</p>
+                    <input type="number" id="cellsX" value=50>How many cells along the x axis</input>
                 </li>
+                <li>
+                    <input type="number" id="cellsY" value=50>How many cells along the y axis</input>
+                </li>
+                <li><button id="regenerate">Re-generate grid</button></li>
+                <li><button id="iterate">Iterate One</button></li>
             </ul>
         </aside>
     </main>
+    <script type="text/javascript " src="/CTIS230assignments/CellularAutomata.js"></script>
 </body>
 
 </html>

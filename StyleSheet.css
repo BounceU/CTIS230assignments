@@ -40,9 +40,13 @@ section {
     overflow: auto;
     flex-grow: 1;
     background-color: rgb(51, 51, 51);
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 10%;
+    padding-right: 10%;
     color: white;
+}
+
+section img {
+    float: left;
 }
 
 section p {
@@ -150,11 +154,12 @@ nav a {
 }
 
 nav a:hover {
+    transition: all 0.3s;
     text-decoration: none;
     display: block;
-    padding: 2em;
     font-style: italic;
     color: red;
+    padding: 2em;
     border-color: #31D618;
 }
 
@@ -185,4 +190,48 @@ section a:hover {
 
 section a:active {
     color: #31D618;
+}
+
+#hideOverflow {
+    overflow: hidden;
+}
+
+.cell {
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin-left: 1px;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: white;
+    transition: transform 0.05s;
+    border: 1px solid black;
+}
+
+.cell:hover {
+    transform: scale(0.8);
+}
+
+.automataFrame {
+    overflow: scroll;
+    align-self: center;
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    height: 80%;
+    margin-top: 2em;
+    white-space: nowrap;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+    supported by Chrome, Edge, Opera and Firefox */
 }
