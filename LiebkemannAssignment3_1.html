@@ -1,4 +1,4 @@
-<!DOCTYPE HTML5>
+<!DOCTYPE html>
 
 <html>
 
@@ -55,13 +55,14 @@
                 subtract 1 from the new image and add 1 to the old image. This basically swaps the data in the images and the output is now black. We are doing something similar in this line program. For each pixel along each line, we add a certain amount
                 (defined by the user) to the input image and subtract that amount from the output image. Since we're subtracting the same amount at each pixel along the line, artifacts will appear which creates the cool effect you see in the finished
                 images.
+                <div class="imageShow">
+                    <img src="/CTIS230assignments/images/WhiteToBlackReverse.gif" alt="Animation showing transition from black to white" width=20%>
+                    <img src="/CTIS230assignments/images/ArrowLeftToRight.png" alt="Arrow pointing between two animations" width=20%>
+                    <img src="/CTIS230assignments/images/WhiteToBlack.gif" alt="Animation showing transition from white to black" width=20%>
+                </div>
             </p>
 
-            <div class="imageShow">
-                <img src="/CTIS230assignments/images/WhiteToBlackReverse.gif" alt="Animation showing transition from black to white" width=20%>
-                <img src="/CTIS230assignments/images/ArrowLeftToRight.png" alt="Arrow pointing between two animations" width=20%>
-                <img src="/CTIS230assignments/images/WhiteToBlack.gif" alt="Animation showing transition from white to black" width=20%>
-            </div>
+
             <p>
                 <em>
                     Hey, wait a minute! You're only talking about gray images! The images on your website are colored!
@@ -71,10 +72,11 @@
             <p>
                 How very astute of you. The project you see on the website isn't any more advanced than what I described above. There's just a simple trick you can use to convert one colored image into 3 gray images: separate the color channels. Colored images are just
                 composed of 3 gray images each colored red, green, and blue respectively. We can separate these out, draw the gray lines on each, and then apply the right color to our lines when we draw them on the output.
+                <div class="imageShow">
+                    <img src="/CTIS230assignments/images/RubiksShown.png" width=60% alt="Image showing 3 color channels combining into 1 complete image" id=notPixelated>
+                </div>
             </p>
-            <div class="imageShow">
-                <img src="/CTIS230assignments/images/RubiksShown.png" width=60% alt="Image showing 3 color channels combining into 1 complete image" id=notPixelated>
-            </div>
+
             <p>
                 <em>
                     Okay, I guess that makes sense. But the lines you are drawing are cyan, magenta, and yellow; not red, green, and blue.
