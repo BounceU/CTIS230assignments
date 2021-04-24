@@ -49,9 +49,9 @@
 
             <p>
                 <div class="imageShow">
-                    <img src="/CTIS230assignments/images/WhiteToBlackReverse.gif" alt="Animation showing transition from black to white" width=30>
-                    <img src="/CTIS230assignments/images/ArrowLeftToRight.png" alt="Arrow pointing between two animations" width=30>
-                    <img src="/CTIS230assignments/images/WhiteToBlack.gif" alt="Animation showing transition from white to black" width=30>
+                    <img src="/CTIS230assignments/images/WhiteToBlackReverse.gif" alt="Animation showing transition from black to white" width=90>
+                    <img src="/CTIS230assignments/images/ArrowLeftToRight.png" alt="Arrow pointing between two animations" width=90>
+                    <img src="/CTIS230assignments/images/WhiteToBlack.gif" alt="Animation showing transition from white to black" width=90>
                 </div>
                 Yeah that's what I thought at first, too. Imagine this: you have a grayscale input image that's only 1 pixel by 1 pixel with a value of 0 (black). Now say you wanted to transfer that data to a new, blank white image: one way you could do it is repeatedly
                 subtract 1 from the new image and add 1 to the old image. This basically swaps the data in the images and the output is now black. We are doing something similar in this line program. For each pixel along each line, we add a certain amount
@@ -69,7 +69,7 @@
 
             <p>
                 <div class="imageShow">
-                    <img src="/CTIS230assignments/images/RubiksShown.png" width=90 alt="Image showing 3 color channels combining into 1 complete image" id=notPixelated>
+                    <img src="/CTIS230assignments/images/RubiksShown.png" width=210 alt="Image showing 3 color channels combining into 1 complete image" id=notPixelated>
                 </div>
                 How very astute of you. The project you see on the website isn't any more advanced than what I described above. There's just a simple trick you can use to convert one colored image into 3 gray images: separate the color channels. Colored images are just
                 composed of 3 gray images each colored red, green, and blue respectively. We can separate these out, draw the gray lines on each, and then apply the right color to our lines when we draw them on the output.
