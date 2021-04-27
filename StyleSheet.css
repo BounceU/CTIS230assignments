@@ -2,7 +2,7 @@ body {
     background-color: rgb(40, 40, 40);
     width: 100%;
     height: 100%;
-    font-family: Cambria, Georgia, "Book Antiqua", serif
+    font-family: Arial, Calibri, 'Deja Vu';
 }
 
 canvas {
