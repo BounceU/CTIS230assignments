@@ -13,12 +13,6 @@ canvas {
     min-height: 100%;
 }
 
-input {
-    font-family: serif;
-    font-size: large;
-    width: 10%;
-}
-
 button {
     font-size: x-large;
     background-color: red;

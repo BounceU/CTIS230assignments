@@ -6,6 +6,7 @@
     <title>Line Drawing Project</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/CTIS230assignments/StyleSheet.css">
+    <meta name="viewport" content="width-device-width,initial-scale=1">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
                     <li>
                         <a href="/CTIS230assignments/LiebkemannAssignment3_2.html">Home Page</a>
                     </li>
-                    <li id=currentPage>
+                    <li>
                         <a href="/CTIS230assignments/CodeProjects/LineAlgorithmWebpage.html">Line Project</a>
                     </li>
                     <li>
@@ -25,7 +26,7 @@
                     <li>
                         <a href="/CTIS230assignments/CellularAutomataWebpage.html">Cellular Automata Project</a>
                     </li>
-                    <li>
+                    <li id=currentPage>
                         <a href="/CTIS230assignments/PredatorPreyWebpage.html">Predator-Prey Project</a>
                     </li>
                     <li>
@@ -38,29 +39,34 @@
 
         <section>
             <div class="projectView">
-                <canvas id="lineCanvas" width=800 height=600></canvas>
+                <canvas id="predPreyCanvas"></canvas>
             </div>
             <p>If you want a description of what this algorithm does, click <a href="/CTIS230assignments/LiebkemannAssignment3_1.html">here</a></p>
         </section>
         <aside id=usegrad2>
             <ul id=settingsPanel>
                 <li>Here are some options that you can change for the project.</li>
-                <li><input type="file" id="findFile"></li>
-                <li><label for="fileInput">Image URL</label>
-                    <input type="url" id="fileInput" name="fileInput"></li>
-                <li><label for="numLines">Number of lines:</label>
-                    <input type="number" id="numLines" name="numLines" value="16000"></li>
-                <li><label for="testNumber">Tests per line:</label>
-                    <input type="number" id="testNumber" name="testNumber" value="100"></li>
-                <li><label for="lineWeight">Line weight:</label>
-                    <input type="number" id="lineWeight" name="lineWeight" value="8"></li>
-                <li><label for="sideLen">Maximum side length:</label>
-                    <input type="number" id="sideLen" name="sideLen" value="500"></li>
-                <li><button id="butt">Make it lines!</button></li>
+                <li><button id="butt">Start</button></li>
+                <li><button id="reset">Reset</button></li>
+                <li><label for="width">Width:</label>
+                    <input type="number" id="width" name="width" value="100" max="100"></li>
+                <li><label for="height">Height:</label>
+                    <input type="number" id="height" name="height" value="100" max="100"></li>
+                <li><label for="preyVal">Prey time til reproduction</label>
+                    <input type="number" id="preyVal" name="preyVal" value="20"></li>
+                <li><label for="predVal">Predator time til death:</label>
+                    <input type="number" id="predVal" name="predVal" value="20"></li>
+                <li><label for="saveLife">Keep species from going extinct:</label>
+                    <input type="checkbox" id="saveLife" name="saveLife" checked></li>
+                <li>
+                    <div class="projectView">
+                        <canvas id="thingy"></canvas>
+                    </div>
+                </li>
             </ul>
         </aside>
     </main>
-    <script src="LineAlgorithm.js "></script>
+    <script src="/CTIS230assignments/PredatorPrey.js"></script>
 </body>
 
 </html>
