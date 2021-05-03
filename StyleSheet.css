@@ -27,7 +27,8 @@ button {
     text-align: center;
     border-radius: 2%;
     padding: 2%;
-    width: 100%;
+    margin-left: 10%;
+    width: 80%;
 }
 
 section {
@@ -37,6 +38,30 @@ section {
     padding-left: 10%;
     padding-right: 10%;
     color: white;
+}
+
+.blogList {
+    overflow-y: scroll;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+}
+
+.blogPost {
+    list-style: none;
+    border: 3px;
+    border-style: dashed;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}
+
+.blogPost img {
+    float: left;
+    width: 200px;
+    height: 200px;
+    padding: 3em;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 section img {
@@ -117,6 +142,15 @@ aside ul {
     list-style: none;
     padding-left: 0;
     padding-top: 0;
+}
+
+nav {
+    display: block;
+    color: #31D618;
+    border: 5px;
+    border-left-style: none;
+    border-bottom-style: none;
+    border-right-style: none;
 }
 
 nav ul {
@@ -228,5 +262,256 @@ section a:active {
     /* Internet Explorer/Edge */
     user-select: none;
     /* Non-prefixed version, currently
-    supported by Chrome, Edge, Opera and Firefox */
+supported by Chrome, Edge, Opera and Firefox */
+}
+
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+    aside {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    main {
+        display: block;
+        overflow: auto;
+    }
+    #usegrad1 {
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+    }
+    #usegrad2 {
+        background-image: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+    }
+    #currentPage {
+        background-image: radial-gradient(circle, rgba(255, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    }
+    section {
+        padding-top: 1em;
+    }
+    nav {
+        display: block;
+        color: #31D618;
+        border: 5px;
+        border-left-style: none;
+        border-bottom-style: none;
+        border-right-style: none;
+    }
+    nav ul {
+        text-decoration: none;
+        display: block;
+        color: #31D618;
+        border: 5px;
+        margin: 0;
+        padding: 1em;
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border-left-style: none;
+        border-top-style: none;
+        border-right-style: none;
+    }
+    nav a {
+        margin: 0;
+        text-decoration: none;
+        padding: 0;
+        display: block;
+        color: #31D618;
+        border: 5px;
+        padding: 1em;
+        border-style: solid;
+        border-left-style: none;
+        border-top-style: none;
+        border-right-style: none;
+    }
+    nav a:hover {
+        transition: all 0.3s;
+        text-decoration: none;
+        display: block;
+        font-style: italic;
+        color: red;
+        padding: 2em;
+        border-color: #31D618;
+    }
+    nav a:active {
+        text-decoration: none;
+        padding: 2em;
+        display: block;
+        color: #31D618;
+    }
+    #currentPage {
+        text-decoration: none;
+        font-style: italic;
+        display: block;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        background-image: linear-gradient(to left, rgba(255, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    }
+    .responsive-menu {
+        display: block;
+        text-decoration: none;
+        display: block;
+        color: #31D618;
+        border: 5px;
+        margin: 0;
+        padding: 1em;
+        padding-left: 0;
+        padding-right: 0;
+        border-left-style: none;
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-style: solid;
+        font-size: 120%;
+    }
+    li {
+        height: fit-content;
+    }
+    .responsive-menu ul li nav ul {
+        display: none;
+    }
+    #trigger {
+        display: none;
+    }
+    #trigger:checked+.responsive-menu ul li:hover nav ul {
+        display: block;
+    }
+    #trigger:checkeD+.responsive-menu ul li:hover .responsive-menu {
+        border-bottom-style: none;
+    }
+}
+
+@media only screen and (max-device-height: 480px) and (orientation: landscape) {
+    section#project {
+        display: block;
+        height: 100%;
+    }
+    aside {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    main {
+        display: block;
+        overflow: auto;
+    }
+    .projectView {
+        box-sizing: border-box;
+        background-color: #31D618;
+        text-align: center;
+        border-radius: 2%;
+        padding: 2%;
+        margin: auto;
+        width: 50%;
+    }
+    #usegrad1 {
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+    }
+    #usegrad2 {
+        background-image: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+    }
+    #currentPage {
+        background-image: radial-gradient(circle, rgba(255, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    }
+    section {
+        padding-top: 1em;
+    }
+    nav {
+        display: block;
+        color: #31D618;
+        border: 5px;
+        border-left-style: none;
+        border-bottom-style: none;
+        border-right-style: none;
+    }
+    nav ul {
+        text-decoration: none;
+        display: block;
+        color: #31D618;
+        border: 5px;
+        margin: 0;
+        padding: 1em;
+        padding-top: 0;
+        padding-left: 0;
+        padding-right: 0;
+        border-left-style: none;
+        border-top-style: none;
+        border-right-style: none;
+    }
+    nav a {
+        margin: 0;
+        text-decoration: none;
+        padding: 0;
+        display: block;
+        color: #31D618;
+        border: 5px;
+        padding: 1em;
+        border-style: solid;
+        border-left-style: none;
+        border-top-style: none;
+        border-right-style: none;
+    }
+    nav a:hover {
+        transition: all 0.3s;
+        text-decoration: none;
+        display: block;
+        font-style: italic;
+        color: red;
+        padding: 2em;
+        border-color: #31D618;
+    }
+    nav a:active {
+        text-decoration: none;
+        padding: 2em;
+        display: block;
+        color: #31D618;
+    }
+    #currentPage {
+        text-decoration: none;
+        font-style: italic;
+        display: block;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        background-image: linear-gradient(to left, rgba(255, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    }
+    .responsive-menu {
+        display: block;
+        text-decoration: none;
+        display: block;
+        color: #31D618;
+        border: 5px;
+        margin: 0;
+        padding: 1em;
+        padding-left: 0;
+        padding-right: 0;
+        border-left-style: none;
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-style: solid;
+        font-size: 120%;
+    }
+    .responsive-menu ul li nav ul {
+        display: none;
+    }
+    #trigger {
+        display: none;
+    }
+    #trigger:checked+.responsive-menu ul li:hover nav ul {
+        display: block;
+    }
+    #trigger:checkeD+.responsive-menu ul li:hover .responsive-menu {
+        border-bottom-style: none;
+    }
+}
+
+@media only screen and (min-device-width: 481px) and (min-device-height:481px) {
+    #trigger {
+        display: none;
+    }
+    #noDesktop {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 481px) {
+    #usegrad2 {
+        display: none;
+    }
 }

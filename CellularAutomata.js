@@ -3,74 +3,93 @@ var arrayOfCells = [];
 var width = 50;
 var height = 50;
 
+var canvas = document.getElementById("automataCanvas");
+var ctx = canvas.getContext('2d');
+
+canvas.style.imageRendering = "pixelated";
+
 var d = new Date();
 
 var running = false;
 
 
 var tempIndex = 0;
-document.querySelectorAll('.cell').forEach(item => {
-    item.style.backgroundColor = "white"
-    arrayOfCells.push(0);
-    var ae = tempIndex;
-    tempIndex++;
-    item.addEventListener('click', event => {
-        if (item.style.backgroundColor == "white") {
-            item.style.backgroundColor = "green";
-            arrayOfCells[ae] = 1;
-
-        } else {
-            item.style.backgroundColor = "white";
-            arrayOfCells[ae] = 0;
-        }
-    })
-});
 
 
 regenerateCells();
 
-document.getElementById("zoomIn").addEventListener("click", function(e) {
-    if (currentScale < 1) {
-        currentScale += 0.1;
+
+canvas.addEventListener('mouseleave', updateCells(), false);
+
+canvas.addEventListener('mousemove', function(e) {
+    var x = Math.floor(e.offsetX / canvas.clientWidth * width) < 0 ? 0 : Math.floor(e.offsetX / canvas.clientWidth * width);
+    var y = Math.floor(e.offsetY / canvas.clientHeight * height) < 0 ? 0 : Math.floor(e.offsetY / canvas.clientHeight * height);
+
+    updateCells();
+
+    ctx.fillStyle = "white";
+    ctx.fillRect(x, y, 1, 1);
+
+    if (arrayOfCells[x + y * width] == 1) {
+        ctx.fillStyle = "rgba(0,0,0,0.8)";
     } else {
-        currentScale += 1;
-        currentScale = Math.floor(currentScale);
+        ctx.fillStyle = "rgba(0,0,0,0.2)";
     }
-    document.querySelectorAll('.cell').forEach(item => {
-        item.style.width = (20 * currentScale) + "px";
-        item.style.height = (20 * currentScale) + "px";
-        item.style.marginLeft = (currentScale) + "px";
-        item.style.marginTop = (currentScale) + "px";
-        item.style.borderRadius = (5 * currentScale) + "px";
-        document.getElementById("scale").innerHTML = "Scale: " + currentScale.toFixed(1);
-    })
+    ctx.fillRect(x, y, 1, 1);
+
 }, false);
 
-document.getElementById("zoomOut").addEventListener("click", function(e) {
-    if (currentScale <= 1) {
-        currentScale -= 0.1;
+canvas.addEventListener('mousedown', function(e) {
+    var x = Math.floor(e.offsetX / canvas.clientWidth * width) < 0 ? 0 : Math.floor(e.offsetX / canvas.clientWidth * width);
+    var y = Math.floor(e.offsetY / canvas.clientHeight * height) < 0 ? 0 : Math.floor(e.offsetY / canvas.clientHeight * height);
+
+    arrayOfCells[x + y * width] = Math.abs(arrayOfCells[x + y * width] - 1);
+
+
+    ctx.fillStyle = "white";
+    ctx.fillRect(x, y, 1, 1);
+
+    if (arrayOfCells[x + y * width] == 1) {
+        ctx.fillStyle = "rgba(0,0,0,0.8)";
     } else {
-        currentScale -= 1;
+        ctx.fillStyle = "rgba(0,0,0,0.2)";
     }
-    document.querySelectorAll('.cell').forEach(item => {
-        item.style.width = (20 * currentScale) + "px";
-        item.style.height = (20 * currentScale) + "px";
-        item.style.marginLeft = Math.floor(currentScale) + "px";
-        item.style.marginTop = Math.floor(currentScale) + "px";
-        item.style.borderRadius = Math.floor(5 * currentScale) + "px";
-        document.getElementById("scale").innerHTML = "Scale: " + currentScale.toFixed(1);
-    })
+    ctx.fillRect(x, y, 1, 1);
+
 }, false);
 
 document.getElementById("regenerate").addEventListener("click", function(e) {
 
+    document.getElementById("butt").innerText = "Start";
     regenerateCells();
 
 }, false);
 
 document.getElementById("iterate").addEventListener("click", function(e) {
+    iterate1();
+}, false);
+
+
+document.getElementById("butt").addEventListener("click", function(e) {
+    if (running) {
+        document.getElementById("butt").innerText = "Play";
+        running = false;
+    } else {
+        document.getElementById("butt").innerText = "Pause";
+        running = true;
+    }
+}, false);
+
+
+var t = setInterval(function() {
+    if (running) {
+        iterate1();
+    }
+}, 1000 / 15)
+
+function iterate1() {
     var tempIndex = 0;
-    document.querySelectorAll('.cell').forEach(item => {
+    while (tempIndex < width * height) {
 
         var x = tempIndex % width;
         var y = Math.floor(tempIndex / width);
@@ -93,16 +112,13 @@ document.getElementById("iterate").addEventListener("click", function(e) {
 
         tempIndex++;
 
-    });
-
+    }
 
     fixArray();
 
     updateCells();
 
-
-}, false);
-
+}
 
 
 function getNeighbors(x, y, width, height, cells) {
@@ -145,17 +161,18 @@ function getNeighbors(x, y, width, height, cells) {
 }
 
 function updateCells() {
-    document.getElementById("iterate").addEventListener("click", function(e) {
-        var tempIndex = 0;
-        document.querySelectorAll('.cell').forEach(item => {
-            if (arrayOfCells[tempIndex] == 0) {
-                item.style.backgroundColor = "white"
+    for (var y = 0; y < canvas.height; y++) {
+        for (var x = 0; x < canvas.width; x++) {
+            if (arrayOfCells[x + y * width] == 1) {
+                ctx.fillStyle = "black"
+                ctx.fillRect(x, y, 1, 1);
             } else {
-                item.style.backgroundColor = "green"
+                ctx.fillStyle = "white"
+                ctx.fillRect(x, y, 1, 1);
             }
-            tempIndex++;
-        });
-    }, false);
+        }
+    }
+
 }
 
 function fixArray() {
@@ -172,80 +189,22 @@ function fixArray() {
 }
 
 function regenerateCells() {
-    var newString = "";
 
-
-    for (var y = 0; y < height; y++) {
-        for (var x = 0; x < width; x++) {
-            newString = newString + "<div class='cell'></div>";
-        }
-        newString = newString + "<br>";
-    }
-
-
-    document.getElementById("holdCells").innerHTML = newString;
-
-    var tempIndex = 0;
     arrayOfCells = [];
+
 
     width = parseInt(document.getElementById("cellsX").value);
     height = parseInt(document.getElementById("cellsY").value);
 
-    document.querySelectorAll('.cell').forEach(item => {
-        item.style.backgroundColor = "white"
-        arrayOfCells.push(0);
-        var ae = tempIndex;
-        tempIndex++;
-        item.addEventListener('click', event => {
-            if (item.style.backgroundColor == "white") {
-                item.style.backgroundColor = "green";
-                arrayOfCells[ae] = 1;
-
-            } else {
-                item.style.backgroundColor = "white";
-                arrayOfCells[ae] = 0;
-            }
-        })
-    });
-}
-
-function tryStart() {
-    var trying = d.getTime();
-    while (running) {
-
-        if (d.getTime() > trying + 1000) {
-            var tempIndex = 0;
-            document.querySelectorAll('.cell').forEach(item => {
-
-                var x = tempIndex % width;
-                var y = Math.floor(tempIndex / width);
-
-                var numNeighbors = getNeighbors(x, y, width, height, arrayOfCells);
-
-                if (arrayOfCells[tempIndex] === 0) {
-                    if (numNeighbors == 3) {
-                        arrayOfCells[tempIndex] = 2;
-                    } else {
-                        arrayOfCells[tempIndex] = 0
-                    }
-                } else if (arrayOfCells[tempIndex] == 1) {
-                    if (!(numNeighbors == 2 || numNeighbors == 3)) {
-                        arrayOfCells[tempIndex] = 3;
-                    } else {
-                        arrayOfCells[tempIndex] = 1;
-                    }
-                }
-
-                tempIndex++;
-
-            });
-
-
-            fixArray();
-
-            updateCells();
-
-            trying = d.getTime();
+    for (var y = 0; y < height; y++) {
+        for (var x = 0; x < width; x++) {
+            arrayOfCells.push(Math.floor(Math.random() * 2));
         }
     }
+
+    canvas.width = width;
+    canvas.height = height;
+
+    updateCells();
+
 }

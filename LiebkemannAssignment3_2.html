@@ -4,40 +4,73 @@
 <head>
     <title>Some of my projects</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/CTIS230assignments/StyleSheet.css">
+    <link rel="stylesheet" href="C:\Users\ben\OneDrive\Documents\GitHub\CTIS230assignments\StyleSheet.css">
+    <meta name="viewport" content="width-device-width,initial-scale=1">
 </head>
 
 <body>
     <main>
         <aside id=usegrad1>
-            <nav>
+            <input type="checkbox" id="trigger">
+            <div class="responsive-menu">
                 <ul>
-
-                    <li id=currentPage>
-                        <a href="/CTIS230assignments/LiebkemannAssignment3_2.html">Home Page</a>
-                    </li>
                     <li>
-                        <a href="/CTIS230assignments/CodeProjects/LineAlgorithmWebpage.html">Line Project</a>
-                    </li>
-                    <li>
-                        <a href="/CTIS230assignments/LiebkemannAssignment3_1.html">Description of Line Project</a>
-                    </li>
-                    <li>
-                        <a href="/CTIS230assignments/CellularAutomataWebpage.html">Cellular Automata Project</a>
-                    </li>
-                    <li>
-                        <a href="/CTIS230assignments/PredatorPreyWebpage.html">Predator-Prey Project</a>
-                    </li>
-                    <li>
-                        <a href="/CTIS230assignments/LiebkemannAssignment2.html">Temporary Webpage</a>
+                        <label for="trigger" id="noDesktop">Menu</label>
+                        <nav>
+                            <ul>
+                                <li id=currentPage>
+                                    <a href="/CTIS230assignments/LiebkemannAssignment3_2.html">Home Page / Blog</a>
+                                </li>
+                                <li>
+                                    <a href="/CTIS230assignments/CodeProjects/LineAlgorithmWebpage.html">Line Project</a>
+                                </li>
+                                <li>
+                                    <a href="/CTIS230assignments/LiebkemannAssignment3_1.html">Description of Line Project</a>
+                                </li>
+                                <li>
+                                    <a href="/CTIS230assignments/CellularAutomataWebpage.html">Cellular Automata Project</a>
+                                </li>
+                                <li>
+                                    <a href="/CTIS230assignments/PredatorPreyWebpage.html">Predator-Prey Project</a>
+                                </li>
+                                <li>
+                                    <a href="/CTIS230assignments/LiebkemannAssignment2.html">Temporary Webpage</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </li>
                 </ul>
-            </nav>
         </aside>
 
         <section>
             <h1>Hey, welcome to my website!</h1>
-            <p>Feel free to use the bar on the left to navigate to different pages. I have an assortment of projects here so check them out!</p>
+            <p>On this website I've ported many personal projects that I've made in Java, Python, and Rust to Javascript! On the left hand of the screen (top if you're on mobile) is a menu where you can navigate between all the different pages of this site.
+                On the right is a panel that will have various settings that you can change about each project. This will remain unpopulated for text-dumps like written here, but I think it gives a nice sense of balance to the page 😉</p>
+            <p>Anyway, I needed something for this main page other than just a description of the website so I decided to make a blog! Check it out below!</p>
+
+            <div class="blogView">
+
+                <ul class="blogList">
+                    <li class="blogPost">
+                        <img src="images/LookingGood.JPG" class="blogImage">
+                        <p>Hello! I'm Ben and I'm starting a blog! I've got big plans for this. For this first post I'm just going to explain a little bit about how this works.
+                            <ol>
+                                <li>There are no comments, sorry. I'll add those later but I just want to be able to start making posts right now.</li>
+                                <li>You might notice that this post is hardcoded into the webpage. I'm not going to keep editing the html and re-uploading this webpage to github every time I want to make a post, so I'm going to make it so that I just have
+                                    a separate file that houses all of my posts. This website will have an html script that will check that file and show you the posts inside of it.</li>
+                                <li>You can click the image on the right to enlarge/<em>(ensmall?)</em> it.</li>
+                                <li>There will be more posts coming so be on the look out!</li>
+                            </ol>
+
+                            <p>If you want a little bit more detail on how the blog file system is going to work I'll probably make a program to write a post and put it in a file with the following format:</p>
+                            <p>"&lt;image url, preferrably one in the images folder&gt;"&lt;Text of the post with markups&gt;</p>
+                            <p>It's a pretty simple system, I just don't want to get into JSON or XML files because they'll just end up being bigger files for no reason since no one is ever going to be actually going into the files. The only place they'll
+                                be shown will be here, and they'll be parsed here.</p>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
         </section>
 
         <aside id=usegrad2>
@@ -49,5 +82,7 @@
         </aside>
     </main>
 </body>
+<script src="BlogScript.js">
+</script>
 
 </html>

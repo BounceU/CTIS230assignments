@@ -1,6 +1,9 @@
 var canvas = document.getElementById('predPreyCanvas');
 var ctx = canvas.getContext('2d');
 
+var graph = document.getElementById('graph');
+var g = graph.getContext('2d');
+
 // Each cell will take the form of [health, state, nextHealth, nextState]
 // We go through each cell and decide where it's gonna move, putting that into it's next state.
 // When we test against a cell, we will test against its "next state/health" if it has them.
@@ -20,6 +23,9 @@ var height = 100;
 canvas.width = width;
 canvas.height = height;
 canvas.style.imageRendering = "pixelated";
+
+graph.width = 200;
+graph.height = 200;
 
 var preyOdds = 0.2;
 var predOdds = 0.01;
@@ -44,6 +50,20 @@ function resetEverything() {
     canvas.width = width;
     canvas.height = height;
     canvas.style.imageRendering = "pixelated";
+
+    g.fillStyle = "rgb(255,255,255)";
+    g.fillRect(0, 0, graph.width, graph.height);
+    g.strokeStyle = "rgb(200,0,0)";
+    g.beginPath();
+    g.moveTo(5, graph.height - 5);
+    g.lineTo(graph.width, graph.height - 5);
+    g.stroke();
+    g.strokeStyle = "rgb(0,200,0)";
+    g.beginPath();
+    g.moveTo(5, 0);
+    g.lineTo(5, graph.height - 5);
+    g.stroke();
+
 
     preyOdds = 0.2;
     predOdds = 0.01;
@@ -131,6 +151,14 @@ worker.onmessage = function(e) {
 
 
 function constructCanvas(useCells) {
+
+    g.fillStyle = "rgba(255,255,255,0.017)"
+    g.fillRect(10, 0, graph.width - 10, graph.height - 10);
+
+
+
+    g.fillStyle = "rgb(0,0,0)";
+    g.fillRect(numRed / (width * height) * (graph.width * 2 - 20) + 10, graph.height - numGreen / (width * height) * (graph.height * 2 - 20) - 10, 1, 1);
 
     ctx.fillStyle = "rgb(255,255,255)";
     ctx.fillRect(0, 0, width, height);
@@ -281,8 +309,8 @@ function manipulateCells() {
 
                         cell.health += 1;
                         if (cell.health > preyHealthVal) {
-                            cell.health /= 2;
-                            cells[movingTo.x + movingTo.y * width].health = cell.health;
+                            cell.health = Math.floor(Math.random() * preyHealthVal / 2);
+                            cells[movingTo.x + movingTo.y * width].health = Math.floor(Math.random() * preyHealthVal / 2);;
                             cells[x + y * width].health = cell.health;
                             cells[movingTo.x + movingTo.y * width].state = 1;
                             cells[movingTo.x + movingTo.y * width].nextState = 1;

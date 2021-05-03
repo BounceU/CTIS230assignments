@@ -6,48 +6,54 @@
     <title>Cellular Automata Project</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/CTIS230assignments/StyleSheet.css">
+    <meta name="viewport" content="width-device-width,initial-scale=1">
 </head>
 
 <body>
     <main>
         <aside id=usegrad1>
-            <nav>
+            <input type="checkbox" id="trigger">
+            <div class="responsive-menu">
                 <ul>
                     <li>
-                        <a href="/CTIS230assignments/LiebkemannAssignment3_2.html">Home Page</a>
-                    </li>
-                    <li>
-                        <a href="/CTIS230assignments/CodeProjects/LineAlgorithmWebpage.html">Line Project</a>
-                    </li>
-                    <li>
-                        <a href="/CTIS230assignments/LiebkemannAssignment3_1.html">Description of Line Project</a>
-                    </li>
-                    <li id=currentPage>
-                        <a href="/CTIS230assignments/CellularAutomataWebpage.html">Cellular Automata Project</a>
-                    </li>
-                    <li>
-                        <a href="/CTIS230assignments/PredatorPreyWebpage.html">Predator-Prey Project</a>
-                    </li>
-                    <li>
-                        <a href="/CTIS230assignments/LiebkemannAssignment2.html">Temporary Webpage</a>
+                        <label for="trigger" id="noDesktop">Menu</label>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="/CTIS230assignments/LiebkemannAssignment3_2.html">Home Page</a>
+                                </li>
+                                <li>
+                                    <a href="/CTIS230assignments/CodeProjects/LineAlgorithmWebpage.html">Line Project</a>
+                                </li>
+                                <li>
+                                    <a href="/CTIS230assignments/LiebkemannAssignment3_1.html">Description of Line Project</a>
+                                </li>
+                                <li id=currentPage>
+                                    <a href="/CTIS230assignments/CellularAutomataWebpage.html">Cellular Automata Project</a>
+                                </li>
+                                <li>
+                                    <a href="/CTIS230assignments/PredatorPreyWebpage.html">Predator-Prey Project</a>
+                                </li>
+                                <li>
+                                    <a href="/CTIS230assignments/LiebkemannAssignment2.html">Temporary Webpage</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </li>
                 </ul>
-            </nav>
         </aside>
 
 
         <section id="hideOverflow">
-            <div class="automataFrame" id="holdCells">
-                <div class="cell"></div>
+            <div class=projectView>
+                <canvas id=automataCanvas></canvas>
             </div>
+            <p>If you want a description of what this algorithm does, click <a href="">here.</a></p>
 
         </section>
         <aside id=usegrad2>
             <ul id=settingsPanel>
                 <li>Here are some options that you can change for the project.</li>
-                <li><label id="scale">Scale: 1</label></li>
-                <li><button id="zoomIn">Zoom In</button></li>
-                <li><button id="zoomOut">Zoom Out</button></li>
                 <li>
                     <input type="number" id="cellsX" value=50>How many cells along the x axis
                 </li>
@@ -56,6 +62,7 @@
                 </li>
                 <li><button id="regenerate">Re-generate grid</button></li>
                 <li><button id="iterate">Iterate One</button></li>
+                <li><button id="butt">Start</button></li>
             </ul>
         </aside>
     </main>
